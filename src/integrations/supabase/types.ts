@@ -14,7 +14,75 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      contact_submissions: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          message: string
+          name: string
+          subject: string | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          message: string
+          name: string
+          subject?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          message?: string
+          name?: string
+          subject?: string | null
+        }
+        Relationships: []
+      }
+      payment_proofs: {
+        Row: {
+          amount_usd: number
+          created_at: string
+          crypto: Database["public"]["Enums"]["crypto_type"]
+          email: string
+          id: string
+          name: string
+          notes: string | null
+          plan: Database["public"]["Enums"]["plan_type"]
+          screenshot_path: string | null
+          status: Database["public"]["Enums"]["proof_status"]
+          tx_hash: string
+        }
+        Insert: {
+          amount_usd: number
+          created_at?: string
+          crypto: Database["public"]["Enums"]["crypto_type"]
+          email: string
+          id?: string
+          name: string
+          notes?: string | null
+          plan: Database["public"]["Enums"]["plan_type"]
+          screenshot_path?: string | null
+          status?: Database["public"]["Enums"]["proof_status"]
+          tx_hash: string
+        }
+        Update: {
+          amount_usd?: number
+          created_at?: string
+          crypto?: Database["public"]["Enums"]["crypto_type"]
+          email?: string
+          id?: string
+          name?: string
+          notes?: string | null
+          plan?: Database["public"]["Enums"]["plan_type"]
+          screenshot_path?: string | null
+          status?: Database["public"]["Enums"]["proof_status"]
+          tx_hash?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -23,7 +91,9 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      crypto_type: "BTC" | "USDT" | "ETH"
+      plan_type: "mentorship" | "vip"
+      proof_status: "pending" | "approved" | "rejected"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +220,10 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      crypto_type: ["BTC", "USDT", "ETH"],
+      plan_type: ["mentorship", "vip"],
+      proof_status: ["pending", "approved", "rejected"],
+    },
   },
 } as const
