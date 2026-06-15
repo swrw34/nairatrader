@@ -85,6 +85,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:description", content: "Forex mentorship from $5 and VIP signals from $10. Pay with crypto." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "NairaTrader — Forex Mentorship & VIP Signals" },
+      { name: "twitter:description", content: "Forex mentorship from $5 and VIP signals from $10. Pay with crypto." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/503917bd-8d05-4996-82a4-66f78948a2b9/id-preview-11fa2ce4--8f8a9e2d-39d6-48d1-a28a-981aef7d6b85.lovable.app-1781495869287.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/503917bd-8d05-4996-82a4-66f78948a2b9/id-preview-11fa2ce4--8f8a9e2d-39d6-48d1-a28a-981aef7d6b85.lovable.app-1781495869287.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
