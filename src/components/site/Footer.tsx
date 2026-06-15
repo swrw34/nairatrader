@@ -9,7 +9,7 @@ export function Footer() {
         <div className="md:col-span-2">
           <Logo className="h-9 w-auto mb-4" />
           <p className="text-sm max-w-sm">
-            {SITE.tagline} Powered by a partnership with three professional traders.
+            <span className="text-white font-medium">NairaTrader Academy</span> — a forex mentorship organised by NairaTrader. Run by three professional traders.
           </p>
         </div>
         <div>
@@ -36,7 +36,7 @@ export function Footer() {
       </div>
       <div className="border-t border-white/10">
         <div className="container-tight py-5 text-xs text-white/50 flex flex-col md:flex-row justify-between gap-2">
-          <p>© {new Date().getFullYear()} NairaTrader. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} NairaTrader Academy. All rights reserved.</p>
           <p>Trading involves risk. Past performance is not indicative of future results.</p>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Check, Copy } from "lucide-react";
+import { Check, Copy, ExternalLink } from "lucide-react";
 import { SiteShell } from "@/components/site/SiteShell";
 import { Button } from "@/components/ui/button";
 import { SITE } from "@/lib/site";
@@ -10,9 +10,9 @@ import { toast } from "sonner";
 export const Route = createFileRoute("/plans")({
   head: () => ({
     meta: [
-      { title: "Plans & Pricing — NairaTrader" },
-      { name: "description", content: "Mentorship $5 · VIP Signals $10. Pay with BTC, USDT or ETH and join the NairaTrader community." },
-      { property: "og:title", content: "NairaTrader Plans — Mentorship $5 · VIP $10" },
+      { title: "Plans & Pricing — NairaTrader Academy" },
+      { name: "description", content: "Mentorship $5 · VIP Signals $10. Pay with BTC or USDT (TRC-20) and join the NairaTrader Academy community." },
+      { property: "og:title", content: "NairaTrader Academy Plans — Mentorship $5 · VIP $10" },
       { property: "og:description", content: "Affordable forex mentorship and VIP signals. Pay with crypto." },
     ],
   }),
@@ -68,12 +68,44 @@ function Plans() {
         </div>
       </section>
 
-      <section id="checkout" className="bg-secondary py-20 scroll-mt-20">
+      {/* Busha guide */}
+      <section className="bg-secondary py-16 border-y border-border">
+        <div className="container-tight max-w-4xl">
+          <p className="text-gold text-sm uppercase tracking-widest">New to crypto?</p>
+          <h2 className="mt-2 text-3xl font-bold">Pay in 4 steps with Busha</h2>
+          <p className="mt-2 text-muted-foreground max-w-2xl">
+            Busha is a Nigerian app that makes converting Naira to USDT fast and simple — the easiest route for most of our members.
+          </p>
+          <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              { n: "01", t: "Create a Busha account", d: "Sign up free at busha.io and complete the quick verification." },
+              { n: "02", t: "Fund with Naira", d: "Top up your Busha wallet by bank transfer from any Nigerian bank." },
+              { n: "03", t: "Buy USDT (TRC-20)", d: "Convert Naira to the USD amount of your plan ($5 or $10) in USDT." },
+              { n: "04", t: "Send & submit proof", d: "Send USDT to our wallet below, then fill the proof form." },
+            ].map((s) => (
+              <div key={s.n} className="rounded-xl border border-border bg-card p-5">
+                <div className="text-gold font-display text-2xl font-bold">{s.n}</div>
+                <h3 className="mt-2 font-semibold">{s.t}</h3>
+                <p className="mt-1.5 text-sm text-muted-foreground">{s.d}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-6">
+            <Button asChild variant="outline" className="border-gold/60 text-foreground hover:bg-gold hover:text-ink">
+              <a href={SITE.busha} target="_blank" rel="noopener noreferrer">
+                Open Busha <ExternalLink className="ml-2 h-4 w-4" />
+              </a>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      <section id="checkout" className="bg-background py-20 scroll-mt-20">
         <div className="container-tight grid lg:grid-cols-2 gap-10 items-start">
           <div>
             <h2 className="text-3xl font-bold">Pay with crypto</h2>
             <p className="mt-2 text-muted-foreground">
-              Send the exact USD amount in BTC, USDT (TRC-20) or ETH to one of the wallets below.
+              Send the exact USD amount in BTC or USDT (TRC-20) to one of the wallets below.
               Then fill out the proof form on the right.
             </p>
 
@@ -100,7 +132,6 @@ function Plans() {
             <div className="mt-6 space-y-3">
               <WalletRow label="Bitcoin (BTC)" address={SITE.wallets.BTC} />
               <WalletRow label="USDT (TRC-20)" address={SITE.wallets.USDT} />
-              <WalletRow label="Ethereum (ETH)" address={SITE.wallets.ETH} />
             </div>
 
             <p className="mt-4 text-xs text-muted-foreground">

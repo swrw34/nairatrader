@@ -7,10 +7,10 @@ import { ExternalLink } from "lucide-react";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — NairaTrader" },
-      { name: "description", content: "Questions about NairaTrader's mentorship or VIP plans? Send us a message and we'll get back to you." },
-      { property: "og:title", content: "Contact NairaTrader" },
-      { property: "og:description", content: "Reach the NairaTrader team." },
+      { title: "Contact — NairaTrader Academy" },
+      { name: "description", content: "Questions about NairaTrader Academy's mentorship or VIP plans? Send us a message and we'll get back to you." },
+      { property: "og:title", content: "Contact NairaTrader Academy" },
+      { property: "og:description", content: "Reach the NairaTrader Academy team." },
     ],
   }),
   component: Contact,

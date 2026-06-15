@@ -16,9 +16,9 @@ const schema = z.object({
   name: z.string().trim().min(1, "Required").max(100),
   email: z.string().trim().email("Invalid email").max(255),
   plan: z.enum(["mentorship", "vip"]),
-  crypto: z.enum(["BTC", "USDT", "ETH"]),
+  crypto: z.enum(["BTC", "USDT"]),
   tx_hash: z.string().trim().min(6, "Transaction hash too short").max(200),
-  notes: z.string().trim().max(1000).optional(),
+  notes: z.string().trim().min(5, "Please add a short note (min 5 chars)").max(1000),
   hp: z.string().max(0).optional(),
 });
 type Values = z.infer<typeof schema>;
@@ -26,50 +26,52 @@ type Values = z.infer<typeof schema>;
 export function PaymentProofForm({ initialPlan = "vip" }: { initialPlan?: "mentorship" | "vip" }) {
   const [done, setDone] = useState(false);
   const [file, setFile] = useState<File | null>(null);
+  const [fileError, setFileError] = useState<string>("");
   const send = useServerFn(submitPaymentProof);
   const { register, handleSubmit, watch, setValue, formState: { errors, isSubmitting }, reset } = useForm<Values>({
     resolver: zodResolver(schema),
     defaultValues: { name: "", email: "", plan: initialPlan, crypto: "USDT", tx_hash: "", notes: "", hp: "" },
   });
 
-  // Keep form's plan in sync if parent changes
   useEffect(() => { setValue("plan", initialPlan); }, [initialPlan, setValue]);
 
   const plan = watch("plan");
   const crypto = watch("crypto");
 
   const onSubmit = async (values: Values) => {
+    if (!file) {
+      setFileError("Screenshot is required");
+      return;
+    }
+    if (file.size > 5 * 1024 * 1024) {
+      setFileError("Screenshot must be 5MB or less");
+      return;
+    }
+    if (!file.type.startsWith("image/")) {
+      setFileError("Screenshot must be an image");
+      return;
+    }
+    setFileError("");
+
     try {
-      let screenshot_path = "";
-      if (file) {
-        if (file.size > 5 * 1024 * 1024) {
-          toast.error("Screenshot must be 5MB or less");
-          return;
-        }
-        if (!file.type.startsWith("image/")) {
-          toast.error("Screenshot must be an image");
-          return;
-        }
-        const ext = file.name.split(".").pop() || "png";
-        const path = `${crypto}/${Date.now()}-${Math.random().toString(36).slice(2, 8)}.${ext}`;
-        const { error: upErr } = await supabase.storage.from("payment-proofs").upload(path, file, {
-          contentType: file.type,
-          upsert: false,
-        });
-        if (upErr) {
-          console.error(upErr);
-          toast.error("Couldn't upload screenshot. Try without it.");
-          return;
-        }
-        screenshot_path = path;
+      const ext = file.name.split(".").pop() || "png";
+      const path = `${crypto}/${Date.now()}-${Math.random().toString(36).slice(2, 8)}.${ext}`;
+      const { error: upErr } = await supabase.storage.from("payment-proofs").upload(path, file, {
+        contentType: file.type,
+        upsert: false,
+      });
+      if (upErr) {
+        console.error(upErr);
+        toast.error("Couldn't upload screenshot. Please try again.");
+        return;
       }
 
       await send({
         data: {
           ...values,
-          notes: values.notes ?? "",
+          notes: values.notes,
           hp: values.hp ?? "",
-          screenshot_path,
+          screenshot_path: path,
         },
       });
       setDone(true);
@@ -121,10 +123,10 @@ export function PaymentProofForm({ initialPlan = "vip" }: { initialPlan?: "mento
       <Field label="Crypto used" error={errors.crypto?.message}>
         <RadioGroup
           value={crypto}
-          onValueChange={(v) => setValue("crypto", v as "BTC" | "USDT" | "ETH")}
-          className="grid grid-cols-3 gap-2"
+          onValueChange={(v) => setValue("crypto", v as "BTC" | "USDT")}
+          className="grid grid-cols-2 gap-2"
         >
-          {(["BTC", "USDT", "ETH"] as const).map((c) => (
+          {(["BTC", "USDT"] as const).map((c) => (
             <PlanRadio key={c} value={c} label={c} current={crypto} />
           ))}
         </RadioGroup>
@@ -134,12 +136,12 @@ export function PaymentProofForm({ initialPlan = "vip" }: { initialPlan?: "mento
         <Input {...register("tx_hash")} placeholder="0x… or T…" className="font-mono text-xs" />
       </Field>
 
-      <Field label="Screenshot (optional)">
-        <Input type="file" accept="image/*" onChange={(e) => setFile(e.target.files?.[0] ?? null)} />
+      <Field label="Payment screenshot" error={fileError} hint="Required — upload your transaction screenshot (max 5MB).">
+        <Input type="file" accept="image/*" onChange={(e) => { setFile(e.target.files?.[0] ?? null); setFileError(""); }} />
       </Field>
 
-      <Field label="Notes (optional)" error={errors.notes?.message}>
-        <Textarea rows={3} {...register("notes")} placeholder="Anything we should know?" />
+      <Field label="Notes" error={errors.notes?.message} hint="Required — anything we should know to verify your payment faster.">
+        <Textarea rows={3} {...register("notes")} placeholder="e.g. sent from Busha, network: TRC-20, sender wallet…" />
       </Field>
 
       <Button type="submit" disabled={isSubmitting} className="w-full bg-gold text-ink hover:bg-gold-soft font-semibold">
@@ -160,11 +162,12 @@ function PlanRadio({ value, label, sub, current }: { value: string; label: strin
   );
 }
 
-function Field({ label, error, children }: { label: string; error?: string; children: React.ReactNode }) {
+function Field({ label, error, hint, children }: { label: string; error?: string; hint?: string; children: React.ReactNode }) {
   return (
     <div className="space-y-1.5">
       <Label className="text-sm">{label}</Label>
       {children}
+      {hint && !error && <p className="text-xs text-muted-foreground">{hint}</p>}
       {error && <p className="text-xs text-destructive">{error}</p>}
     </div>
   );
