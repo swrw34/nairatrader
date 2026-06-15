@@ -15,8 +15,8 @@ const proofSchema = z.object({
   plan: z.enum(["mentorship", "vip"]),
   crypto: z.enum(["BTC", "USDT", "ETH"]),
   tx_hash: z.string().trim().min(6).max(200),
-  notes: z.string().trim().max(1000).optional().default(""),
-  screenshot_path: z.string().trim().max(500).optional().default(""),
+  notes: z.string().trim().min(5).max(1000),
+  screenshot_path: z.string().trim().min(1).max(500),
   hp: z.string().max(0).optional().default(""),
 });
 
@@ -51,8 +51,8 @@ export const submitPaymentProof = createServerFn({ method: "POST" })
       amount_usd: amount,
       crypto: data.crypto,
       tx_hash: data.tx_hash,
-      notes: data.notes || null,
-      screenshot_path: data.screenshot_path || null,
+      notes: data.notes,
+      screenshot_path: data.screenshot_path,
     });
     if (error) {
       console.error("proof insert", error);

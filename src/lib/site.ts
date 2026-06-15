@@ -1,5 +1,6 @@
 export const SITE = {
-  name: "NairaTrader",
+  name: "NairaTrader Academy",
+  shortName: "NairaTrader",
   tagline: "Forex mentorship, signals & VIP community for African traders.",
   mentors: [
     { name: "Sabiigal", handle: "@midrizzy1", x: "https://x.com/midrizzy1" },
@@ -7,12 +8,12 @@ export const SITE = {
     { name: "DAX", handle: "@thissdax", x: "https://x.com/thissdax" },
   ],
   wallets: {
-    BTC: "bc1qxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-    USDT: "TXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX", // TRC-20
-    ETH: "0xXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    BTC: "bc1qv3dh9zn524ekhe0f4q2vcyx3evwgquxy6sztzz",
+    USDT: "TMdHG2FG58gG2ibzjxiyMDCLGirZGD4WBU", // TRC-20
   },
   plans: {
     mentorship: { price: 5, name: "Mentorship" },
     vip: { price: 10, name: "VIP Signals" },
   },
+  busha: "https://busha.io",
 } as const;
