@@ -7,9 +7,9 @@ import { SITE } from "@/lib/site";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "NairaTrader — Forex Mentorship & VIP Signals" },
-      { name: "description", content: "Learn forex from professional traders. Mentorship from $5 and VIP signals from $10. Pay with crypto." },
-      { property: "og:title", content: "NairaTrader — Forex Mentorship & VIP Signals" },
+      { title: "NairaTrader Academy — Forex Mentorship & VIP Signals" },
+      { name: "description", content: "NairaTrader Academy: forex mentorship from $5 and VIP signals from $10. Run by three professional traders. Pay with crypto." },
+      { property: "og:title", content: "NairaTrader Academy — Forex Mentorship & VIP Signals" },
       { property: "og:description", content: "Mentorship & VIP signals for serious forex traders. Pay with crypto." },
     ],
   }),
@@ -33,13 +33,13 @@ function Home() {
               Trade forex with <span className="gold-gradient-text">conviction.</span>
             </h1>
             <p className="mt-6 text-lg text-white/70 max-w-2xl">
-              {SITE.tagline} Real strategies, real discipline, real results — guided by three professional traders.
+              {SITE.tagline} A mentorship organised by NairaTrader and guided by three professional traders.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg" className="bg-gold text-ink hover:bg-gold-soft font-semibold">
                 <Link to="/plans">View plans <ArrowRight className="ml-2 h-4 w-4" /></Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 hover:text-white">
+              <Button asChild size="lg" variant="outline" className="border-gold/60 bg-transparent text-gold hover:bg-gold hover:text-ink font-semibold">
                 <Link to="/how-it-works">How it works</Link>
               </Button>
             </div>
@@ -153,7 +153,7 @@ function CTA() {
       <div className="container-tight">
         <div className="rounded-2xl bg-ink text-white p-10 md:p-14 text-center border border-gold/20">
           <h2 className="text-3xl md:text-4xl font-bold">Ready to trade with a real plan?</h2>
-          <p className="mt-3 text-white/70 max-w-xl mx-auto">Join the NairaTrader community and trade alongside professionals.</p>
+          <p className="mt-3 text-white/70 max-w-xl mx-auto">Join NairaTrader Academy and trade alongside professionals.</p>
           <Button asChild size="lg" className="mt-6 bg-gold text-ink hover:bg-gold-soft font-semibold">
             <Link to="/plans">Get started <ArrowRight className="ml-2 h-4 w-4" /></Link>
           </Button>

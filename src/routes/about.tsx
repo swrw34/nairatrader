@@ -6,10 +6,10 @@ import { ExternalLink } from "lucide-react";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — NairaTrader" },
-      { name: "description", content: "NairaTrader partners with three professional forex traders to bring mentorship and VIP signals to the next generation of African traders." },
-      { property: "og:title", content: "About NairaTrader" },
-      { property: "og:description", content: "Learn the story behind NairaTrader and meet our three professional mentors." },
+      { title: "About — NairaTrader Academy" },
+      { name: "description", content: "NairaTrader Academy is a forex mentorship organised by NairaTrader in partnership with three professional traders." },
+      { property: "og:title", content: "About NairaTrader Academy" },
+      { property: "og:description", content: "The story behind NairaTrader Academy and the three mentors who run it." },
     ],
   }),
   component: About,
@@ -23,12 +23,12 @@ function About() {
           <p className="text-gold text-sm uppercase tracking-widest">About us</p>
           <h1 className="mt-3 text-4xl md:text-5xl font-bold">Built by traders, for traders.</h1>
           <p className="mt-6 text-white/70 text-lg">
-            NairaTrader is a forex education and signals community built on a simple idea: most
-            traders fail not because the markets are impossible — but because they trade alone,
+            NairaTrader Academy is a forex mentorship organised by NairaTrader. We exist because
+            most traders fail not because the markets are impossible — but because they trade alone,
             without structure, without risk control, and without a mentor they can trust.
           </p>
           <p className="mt-4 text-white/70 text-lg">
-            We partnered with three professional traders to fix that. Together, we provide
+            We partnered with three professional traders to fix that. Together, the Academy provides
             mentorship, daily VIP signals and an active community — at prices anyone can start with.
           </p>
         </div>
@@ -65,7 +65,7 @@ function About() {
                   {m.handle} <ExternalLink className="h-3.5 w-3.5" />
                 </div>
                 <p className="mt-3 text-sm text-muted-foreground">
-                  Professional forex trader and NairaTrader mentor.
+                  Professional forex trader and NairaTrader Academy mentor.
                 </p>
               </a>
             ))}
