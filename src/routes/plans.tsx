@@ -11,8 +11,8 @@ export const Route = createFileRoute("/plans")({
   head: () => ({
     meta: [
       { title: "Plans & Pricing — NairaTrader Academy" },
-      { name: "description", content: "Mentorship $5 · VIP Signals $10. Pay with BTC or USDT (TRC-20) and join the NairaTrader Academy community." },
-      { property: "og:title", content: "NairaTrader Academy Plans — Mentorship $5 · VIP $10" },
+      { name: "description", content: "Mentorship $15 · VIP Signals $20. Pay with BTC or USDT (TRC-20) and join the NairaTrader Academy community." },
+      { property: "og:title", content: "NairaTrader Academy Plans — Mentorship $15 · VIP $20" },
       { property: "og:description", content: "Affordable forex mentorship and VIP signals. Pay with crypto." },
     ],
   }),
