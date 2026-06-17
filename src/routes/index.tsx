@@ -100,8 +100,8 @@ function Home() {
               </Button>
             </div>
             <div className="grid gap-4">
-              <PricePeek name="Mentorship" price={5} bullets={["Group mentorship", "Strategy walkthroughs", "Weekly Q&A"]} />
-              <PricePeek name="VIP Signals" price={10} highlight bullets={["Everything in Mentorship", "Daily live signals", "Priority support"]} />
+              <PricePeek name="Mentorship" price={15} bullets={["Group mentorship", "Strategy walkthroughs", "Weekly Q&A"]} />
+              <PricePeek name="VIP Signals" price={20} highlight bullets={["Everything in Mentorship", "Daily live signals", "Priority support"]} />
             </div>
           </div>
         </div>
