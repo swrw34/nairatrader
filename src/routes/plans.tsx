@@ -40,7 +40,7 @@ function Plans() {
         <div className="container-tight grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           <PlanCard
             name="Mentorship"
-            price={5}
+            price={15}
             tagline="Learn the craft"
             features={[
               "Access to the private mentorship group",
