@@ -80,7 +80,7 @@ function Plans() {
             {[
               { n: "01", t: "Create a Busha account", d: "Sign up free at busha.io and complete the quick verification." },
               { n: "02", t: "Fund with Naira", d: "Top up your Busha wallet by bank transfer from any Nigerian bank." },
-              { n: "03", t: "Buy USDT (TRC-20)", d: "Convert Naira to the USD amount of your plan ($5 or $10) in USDT." },
+              { n: "03", t: "Buy USDT (TRC-20)", d: "Convert Naira to the USD amount of your plan ($15 or $20) in USDT." },
               { n: "04", t: "Send & submit proof", d: "Send USDT to our wallet below, then fill the proof form." },
             ].map((s) => (
               <div key={s.n} className="rounded-xl border border-border bg-card p-5">
