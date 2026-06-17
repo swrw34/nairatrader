@@ -121,11 +121,11 @@ function Plans() {
                 <button
                   className={`flex-1 rounded-md border px-3 py-2 text-sm transition ${selected === "mentorship" ? "border-gold bg-gold/10" : "border-border"}`}
                   onClick={() => setSelected("mentorship")}
-                >Mentorship · $5</button>
+                >Mentorship · $15</button>
                 <button
                   className={`flex-1 rounded-md border px-3 py-2 text-sm transition ${selected === "vip" ? "border-gold bg-gold/10" : "border-border"}`}
                   onClick={() => setSelected("vip")}
-                >VIP · $10</button>
+                >VIP · $20</button>
               </div>
             </div>
 
