@@ -12,8 +12,8 @@ export const SITE = {
     USDT: "TMdHG2FG58gG2ibzjxiyMDCLGirZGD4WBU", // TRC-20
   },
   plans: {
-    mentorship: { price: 5, name: "Mentorship" },
-    vip: { price: 10, name: "VIP Signals" },
+    mentorship: { price: 15, name: "Mentorship" },
+    vip: { price: 20, name: "VIP Signals" },
   },
   busha: "https://busha.io",
 } as const;
