@@ -116,7 +116,7 @@ export function PaymentProofForm({ initialPlan = "vip" }: { initialPlan?: "mento
           className="grid grid-cols-2 gap-2"
         >
           <PlanRadio value="mentorship" label="Mentorship" sub="$15" current={plan} />
-          <PlanRadio value="vip" label="VIP Signals" sub="$20" current={plan} />)
+          <PlanRadio value="vip" label="VIP Signals" sub="$20" current={plan} />
         </RadioGroup>
       </Field>
 
