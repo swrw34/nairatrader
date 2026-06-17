@@ -147,6 +147,12 @@ function Plans() {
             <div className="mt-6">
               <PaymentProofForm initialPlan={selected} />
             </div>
+            <p className="mt-4 text-xs text-muted-foreground text-center">
+              Form not working? Email your proof to{" "}
+              <a href="mailto:nairatrader.academy@outlook.com" className="font-semibold text-gold underline-offset-2 hover:underline">
+                nairatrader.academy@outlook.com
+              </a>
+            </p>
           </div>
         </div>
       </section>
