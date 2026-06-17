@@ -53,7 +53,7 @@ function Plans() {
           />
           <PlanCard
             name="VIP Signals"
-            price={10}
+            price={20}
             tagline="Trade with the pros"
             highlight
             features={[
