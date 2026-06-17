@@ -8,7 +8,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "NairaTrader Academy — Forex Mentorship & VIP Signals" },
-      { name: "description", content: "NairaTrader Academy: forex mentorship from $5 and VIP signals from $10. Run by three professional traders. Pay with crypto." },
+      { name: "description", content: "NairaTrader Academy: forex mentorship from $15 and VIP signals from $20. Run by three professional traders. Pay with crypto." },
       { property: "og:title", content: "NairaTrader Academy — Forex Mentorship & VIP Signals" },
       { property: "og:description", content: "Mentorship & VIP signals for serious forex traders. Pay with crypto." },
     ],
