@@ -16,7 +16,7 @@ export const Route = createFileRoute("/how-it-works")({
 });
 
 const steps = [
-  { n: "01", t: "Choose your plan", d: "Mentorship ($5) for guidance and strategy, or VIP ($10) for daily live signals plus everything in Mentorship." },
+  { n: "01", t: "Choose your plan", d: "Mentorship ($15) for guidance and strategy, or VIP ($20) for daily live signals plus everything in Mentorship." },
   { n: "02", t: "Pay with crypto", d: "Send your payment in BTC or USDT (TRC-20). New to crypto? Use Busha — a Nigerian app — to convert Naira to USDT in minutes." },
   { n: "03", t: "Submit proof", d: "Fill out the proof form with your name, email, transaction hash, a screenshot of the payment and any helpful notes." },
   { n: "04", t: "Get the Telegram link", d: "We verify the payment, then email you the private Telegram group link — usually within a few hours." },

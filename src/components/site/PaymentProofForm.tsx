@@ -115,8 +115,8 @@ export function PaymentProofForm({ initialPlan = "vip" }: { initialPlan?: "mento
           onValueChange={(v) => setValue("plan", v as "mentorship" | "vip")}
           className="grid grid-cols-2 gap-2"
         >
-          <PlanRadio value="mentorship" label="Mentorship" sub="$5" current={plan} />
-          <PlanRadio value="vip" label="VIP Signals" sub="$10" current={plan} />
+          <PlanRadio value="mentorship" label="Mentorship" sub="$15" current={plan} />
+          <PlanRadio value="vip" label="VIP Signals" sub="$20" current={plan} />
         </RadioGroup>
       </Field>
 

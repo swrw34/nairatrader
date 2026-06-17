@@ -8,7 +8,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "NairaTrader Academy — Forex Mentorship & VIP Signals" },
-      { name: "description", content: "NairaTrader Academy: forex mentorship from $5 and VIP signals from $10. Run by three professional traders. Pay with crypto." },
+      { name: "description", content: "NairaTrader Academy: forex mentorship from $15 and VIP signals from $20. Run by three professional traders. Pay with crypto." },
       { property: "og:title", content: "NairaTrader Academy — Forex Mentorship & VIP Signals" },
       { property: "og:description", content: "Mentorship & VIP signals for serious forex traders. Pay with crypto." },
     ],
@@ -27,7 +27,7 @@ function Home() {
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/10 px-3 py-1 text-xs text-gold font-medium">
               <span className="h-1.5 w-1.5 rounded-full bg-gold animate-pulse" />
-              Mentorship from $5 · VIP from $10
+              Mentorship from $15 · VIP from $20
             </span>
             <h1 className="mt-6 text-4xl md:text-6xl font-bold leading-[1.05]">
               Trade forex with <span className="gold-gradient-text">conviction.</span>
@@ -100,8 +100,8 @@ function Home() {
               </Button>
             </div>
             <div className="grid gap-4">
-              <PricePeek name="Mentorship" price={5} bullets={["Group mentorship", "Strategy walkthroughs", "Weekly Q&A"]} />
-              <PricePeek name="VIP Signals" price={10} highlight bullets={["Everything in Mentorship", "Daily live signals", "Priority support"]} />
+              <PricePeek name="Mentorship" price={15} bullets={["Group mentorship", "Strategy walkthroughs", "Weekly Q&A"]} />
+              <PricePeek name="VIP Signals" price={20} highlight bullets={["Everything in Mentorship", "Daily live signals", "Priority support"]} />
             </div>
           </div>
         </div>

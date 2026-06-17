@@ -11,8 +11,8 @@ export const Route = createFileRoute("/plans")({
   head: () => ({
     meta: [
       { title: "Plans & Pricing — NairaTrader Academy" },
-      { name: "description", content: "Mentorship $5 · VIP Signals $10. Pay with BTC or USDT (TRC-20) and join the NairaTrader Academy community." },
-      { property: "og:title", content: "NairaTrader Academy Plans — Mentorship $5 · VIP $10" },
+      { name: "description", content: "Mentorship $15 · VIP Signals $20. Pay with BTC or USDT (TRC-20) and join the NairaTrader Academy community." },
+      { property: "og:title", content: "NairaTrader Academy Plans — Mentorship $15 · VIP $20" },
       { property: "og:description", content: "Affordable forex mentorship and VIP signals. Pay with crypto." },
     ],
   }),
@@ -40,7 +40,7 @@ function Plans() {
         <div className="container-tight grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           <PlanCard
             name="Mentorship"
-            price={5}
+            price={15}
             tagline="Learn the craft"
             features={[
               "Access to the private mentorship group",
@@ -53,7 +53,7 @@ function Plans() {
           />
           <PlanCard
             name="VIP Signals"
-            price={10}
+            price={20}
             tagline="Trade with the pros"
             highlight
             features={[
@@ -80,7 +80,7 @@ function Plans() {
             {[
               { n: "01", t: "Create a Busha account", d: "Sign up free at busha.io and complete the quick verification." },
               { n: "02", t: "Fund with Naira", d: "Top up your Busha wallet by bank transfer from any Nigerian bank." },
-              { n: "03", t: "Buy USDT (TRC-20)", d: "Convert Naira to the USD amount of your plan ($5 or $10) in USDT." },
+              { n: "03", t: "Buy USDT (TRC-20)", d: "Convert Naira to the USD amount of your plan ($15 or $20) in USDT." },
               { n: "04", t: "Send & submit proof", d: "Send USDT to our wallet below, then fill the proof form." },
             ].map((s) => (
               <div key={s.n} className="rounded-xl border border-border bg-card p-5">
@@ -121,11 +121,11 @@ function Plans() {
                 <button
                   className={`flex-1 rounded-md border px-3 py-2 text-sm transition ${selected === "mentorship" ? "border-gold bg-gold/10" : "border-border"}`}
                   onClick={() => setSelected("mentorship")}
-                >Mentorship · $5</button>
+                >Mentorship · $15</button>
                 <button
                   className={`flex-1 rounded-md border px-3 py-2 text-sm transition ${selected === "vip" ? "border-gold bg-gold/10" : "border-border"}`}
                   onClick={() => setSelected("vip")}
-                >VIP · $10</button>
+                >VIP · $20</button>
               </div>
             </div>
 
@@ -147,6 +147,12 @@ function Plans() {
             <div className="mt-6">
               <PaymentProofForm initialPlan={selected} />
             </div>
+            <p className="mt-4 text-xs text-muted-foreground text-center">
+              Form not working? Email your proof to{" "}
+              <a href="mailto:nairatrader.academy@outlook.com" className="font-semibold text-gold underline-offset-2 hover:underline">
+                nairatrader.academy@outlook.com
+              </a>
+            </p>
           </div>
         </div>
       </section>

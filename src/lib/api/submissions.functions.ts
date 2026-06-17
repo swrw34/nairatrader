@@ -42,7 +42,7 @@ export const submitPaymentProof = createServerFn({ method: "POST" })
   .inputValidator((d: unknown) => proofSchema.parse(d))
   .handler(async ({ data }) => {
     if (data.hp) return { ok: true };
-    const amount = data.plan === "vip" ? 10 : 5;
+    const amount = data.plan === "vip" ? 20 : 15;
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
     const { error } = await supabaseAdmin.from("payment_proofs").insert({
       name: data.name,
