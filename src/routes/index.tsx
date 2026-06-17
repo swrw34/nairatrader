@@ -27,7 +27,7 @@ function Home() {
           <div className="max-w-3xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/10 px-3 py-1 text-xs text-gold font-medium">
               <span className="h-1.5 w-1.5 rounded-full bg-gold animate-pulse" />
-              Mentorship from $5 · VIP from $10
+              Mentorship from $15 · VIP from $20
             </span>
             <h1 className="mt-6 text-4xl md:text-6xl font-bold leading-[1.05]">
               Trade forex with <span className="gold-gradient-text">conviction.</span>
